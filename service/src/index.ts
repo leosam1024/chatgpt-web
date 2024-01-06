@@ -587,6 +587,12 @@ router.post('/session', async (req, res) => {
       let label = model
       if (model === 'text-davinci-002-render-sha-mobile')
         label = 'gpt-3.5-mobile'
+      if (model.includes('chatglm'))
+        label = '智谱 ' + label
+      if (model.includes('ERNIE'))
+        label = '文心千帆 ' + label
+      if (model.includes('SparkDesk'))
+        label = '讯飞 ' + label
       return {
         label,
         key: model,
